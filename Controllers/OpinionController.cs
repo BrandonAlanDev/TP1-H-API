@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TP1_API.Models;
+using Microsoft.AspNetCore.JsonPatch;
+
 
 namespace TP1_API.Controllers
 {
@@ -14,12 +16,13 @@ namespace TP1_API.Controllers
     public class OpinionController : ControllerBase
     {
         private readonly OpinionContext _context;
+        private static int contadorId = 0;
 
         public OpinionController(OpinionContext context)
         {
             _context = context;
         }
-
+        
         // GET: api/Opinion
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Opinion>>> GetOpinions()
@@ -39,6 +42,20 @@ namespace TP1_API.Controllers
             }
 
             return opinion;
+        }
+
+        // GET: api/Opinion/user/Brandon
+        [HttpGet("user/{user}")]
+        public async Task<ActionResult<IEnumerable<Opinion>>> GetOpinion(string user)
+        {
+            var opinions = await _context.Opinions.Where(o => o.user == user).ToListAsync();
+
+            if (opinions == null)
+            {
+                return NotFound();
+            }
+
+            return opinions;
         }
 
         // PUT: api/Opinion/5
@@ -77,10 +94,40 @@ namespace TP1_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Opinion>> PostOpinion(Opinion opinion)
         {
+            contadorId++; // Incrementar el contador de ID.
+            opinion.id = contadorId; // Asignar el nuevo ID al objeto Opinion.
             _context.Opinions.Add(opinion);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetOpinion", new { id = opinion.id }, opinion);
+        }
+
+        // PATCH: api/Opinion/1
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchOpinion(int id, [FromBody] JsonPatchDocument<Opinion> patchDocument)
+        {
+            if (patchDocument == null)
+            {
+                return BadRequest();
+            }
+
+            var opinionToUpdate = await _context.Opinions.FirstOrDefaultAsync(o => o.id == id);
+
+            if (opinionToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            patchDocument.ApplyTo(opinionToUpdate, (Microsoft.AspNetCore.JsonPatch.JsonPatchError err) => ModelState.AddModelError("JsonPatch", err.ErrorMessage));
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         // DELETE: api/Opinion/5

@@ -8,6 +8,13 @@ builder.Services.AddDbContext<OpinionContext>(opt =>
     opt.UseInMemoryDatabase("TodoList"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://127.0.0.1:5500")
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -22,5 +29,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.Run();
