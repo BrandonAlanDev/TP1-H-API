@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj": {}
+    "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj": {
+    "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj",
+        "projectUniqueName": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj",
         "projectName": "TP1-API",
-        "projectPath": "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj",
-        "packagesPath": "C:\\Users\\Anita\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\obj\\",
+        "projectPath": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj",
+        "packagesPath": "C:\\Users\\hilet.HILET\\.nuget\\packages\\",
+        "outputPath": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Anita\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\hilet.HILET\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Certificate": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
               "version": "[8.0.4, )"

@@ -640,6 +640,25 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Certificate/8.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Certificate.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Certificate.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.JsonPatch/8.0.4": {
         "type": "package",
         "dependencies": {
@@ -3654,6 +3673,21 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Certificate/8.0.2": {
+      "sha512": "BNcmEfMyEE765bowJiUBSD9wpnDHSS1MiQX5EtJ8TusNz29/Q/tgfl59Qzl9R2yt9hAwaPbMkjq4iJIhCO/e4w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.certificate/8.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Certificate.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Certificate.xml",
+        "microsoft.aspnetcore.authentication.certificate.8.0.2.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.certificate.nuspec"
       ]
     },
     "Microsoft.AspNetCore.JsonPatch/8.0.4": {
@@ -8316,6 +8350,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Microsoft.AspNetCore.Authentication.Certificate >= 8.0.2",
       "Microsoft.AspNetCore.JsonPatch >= 8.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.4",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.4",
@@ -8326,24 +8361,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Anita\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj",
+      "projectUniqueName": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj",
       "projectName": "TP1-API",
-      "projectPath": "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj",
-      "packagesPath": "C:\\Users\\Anita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Anita\\Documents\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\obj\\",
+      "projectPath": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj",
+      "packagesPath": "C:\\Users\\hilet.HILET\\.nuget\\packages\\",
+      "outputPath": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Anita\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\hilet.HILET\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8374,6 +8404,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Certificate": {
+            "target": "Package",
+            "version": "[8.0.2, )"
+          },
           "Microsoft.AspNetCore.JsonPatch": {
             "target": "Package",
             "version": "[8.0.4, )"

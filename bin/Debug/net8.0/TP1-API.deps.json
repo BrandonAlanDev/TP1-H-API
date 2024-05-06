@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "TP1-API/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Certificate": "8.0.2",
           "Microsoft.AspNetCore.JsonPatch": "8.0.4",
           "Microsoft.EntityFrameworkCore.Design": "8.0.4",
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.4",
@@ -591,6 +592,17 @@
         "resources": {
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Certificate/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Memory": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Certificate.dll": {
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.224.6804"
           }
         }
       },
@@ -2311,6 +2323,13 @@
       "sha512": "sha512-VIXB7HCUC34OoaGnO3HJVtSv2/wljPhjV7eKH4+TFPgQdJj2lvHNKY41Dtg0Bphu7X5UaXFR4zrYYyo+GNOjbA==",
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Certificate/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BNcmEfMyEE765bowJiUBSD9wpnDHSS1MiQX5EtJ8TusNz29/Q/tgfl59Qzl9R2yt9hAwaPbMkjq4iJIhCO/e4w==",
+      "path": "microsoft.aspnetcore.authentication.certificate/8.0.2",
+      "hashPath": "microsoft.aspnetcore.authentication.certificate.8.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.JsonPatch/8.0.4": {
       "type": "package",
