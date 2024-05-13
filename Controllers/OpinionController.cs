@@ -94,6 +94,7 @@ namespace TP1_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Opinion>> PostOpinion(Opinion opinion)
         {
+            
             contadorId++; // Incrementar el contador de ID.
             opinion.id = contadorId; // Asignar el nuevo ID al objeto Opinion.
             _context.Opinions.Add(opinion);
@@ -151,4 +152,27 @@ namespace TP1_API.Controllers
             return _context.Opinions.Any(e => e.id == id);
         }
     }
+    /*
+    private string LimpiarYValidarOpinion(Opinion campo)
+    {
+        cadena = cadena?.Trim();
+
+        if (campo == Campo.user)
+        {
+            if (string.IsNullOrEmpty(cadena) || cadena.Length < 3 || cadena.Length > 20)
+            {
+                return null;
+            }
+        }
+        else if (campo == Campo.Comment)
+        {
+            if (string.IsNullOrEmpty(cadena) || cadena.Length < 1 || cadena.Length > 500)
+            {
+                return null;
+            }
+        }
+
+        return cadena; // Retornamos la cadena limpia y validada
+    }
+    */
 }
