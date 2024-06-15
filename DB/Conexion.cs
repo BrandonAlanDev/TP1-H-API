@@ -1,80 +1,53 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using TP1_API.Models;
 using System.Data.SqlClient;
+using Dapper;
+using TP1_API.Models;
 
 namespace TP1_API.DB
 {
     public class Conexion
     {
-        private string connectionString="asdas";
+        private readonly string connectionString = "Server=server-terciario.hilet.com,11333;Database=honor;User Id=sa;Password=1234!qwerQW;";
 
-        // Codigo de comando generico que no necesito que devuelva nada para no repetir codigo
-        private static void Comando(string queryString,
-            string connectionString)
+        // Obtener todas las opiniones
+        public IEnumerable<Opinion> GetOpinions()
         {
-            try{
-                using (SqlConnection connection = new SqlConnection(
-                        connectionString))
-                {
-                    SqlCommand command = new SqlCommand(queryString, connection);
-                    command.Connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }catch(Exception ex){
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Comentarios";
+                return connection.Query<Opinion>(query);
             }
         }
 
-        // Verifica la existencia, si existe, devuelve el id, si no existe devuelve 0
-        public int existeUsuario(string user){
-            try{
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
-                        string query = $"SELECT id_usuario FROM Usuarios WHERE nombre_usuario = @user ;";
-                        using (SqlCommand cmd = new SqlCommand(query, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@user", user);
-                            return Convert.ToInt32(cmd.ExecuteScalar());
-                        }
-                    }
-            }catch{return 0;}
-        }
-
-        // Verifica la existencia, si existe, devuelve el id, si no existe crea un usuario, luego devuelve su id, si sigue sin existir devuelve 0
-        public int comprobarUsuario(string user,string imagen){
-            int resultado = existeUsuario(user);
-            if(resultado) return resultado;
-            try
+        // Obtener opiniones por nombre de usuario
+        public IEnumerable<Opinion> GetOpinionsByUser(string nombreUsuario)
+        {
+            using (var connection = new SqlConnection(connectionString))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    string query = $"INSERT INTO Usuarios(nombre_usuario,imagen) VALUES (@user,@imagen) ;";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@user", user);
-                        cmd.Parameters.AddWithValue("@imagen", imagen);
-                        cmd.ExecuteScalar();
-                    }
-                }
-            }catch{}
-            int resultado = existeUsuario(user);
-            if(resultado){return resultado;} else return 0; 
+                string query = "SELECT * FROM Comentarios WHERE nombre_usuario = @nombreUsuario";
+                return connection.Query<Opinion>(query, new { nombreUsuario });
+            }
         }
 
-        //Sube un comentario
-        public void cargarComentario(Opinion opinion){
-            string comment=opinion.comment;
-            int userid;
-            userid=comprobarUsuario(opinion.user,opinion.imagen);
-            string query = $"INSERT INTO Comentarios(comentario,visible,fk_id_usuario) VALUES ('{comment}',1,{userid});";
-            Comando(query,connectionString);
+        // Eliminar (marcar como no visible) una opinión por id
+        public void DeleteOpinion(int idComentario)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE Comentarios SET visible = 0 WHERE id_comentario = @idComentario";
+                connection.Execute(query, new { idComentario });
+            }
         }
 
-        
+        // Insertar una nueva opinión
+        public void InsertOpinion(Opinion opinion)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Comentarios (comentario, visible, nombre_usuario, imagen) VALUES (@comentario, @visible, @nombre_usuario, @imagen)";
+                connection.Execute(query, opinion);
+            }
+        }
     }
-    
 }
