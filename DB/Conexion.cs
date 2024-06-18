@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using TP1_API.Models;
@@ -8,7 +6,7 @@ namespace TP1_API.DB
 {
     public class Conexion
     {
-        private readonly string connectionString = "Server=server-terciario.hilet.com,11333;Database=honor;User Id=sa;Password=1234!qwerQW;";
+        private readonly string connectionString = $"Server=server-terciario.hilet.com,11333;Database=honor;User Id=sa;Password=1234!\"qwerQW;";
 
         // Obtener todas las opiniones
         public IEnumerable<Opinion> GetOpinions()
