@@ -773,3 +773,11 @@ C:\Users\brand\OneDrive\Documentos\ALGORITMOS\ALGORITMOS3\MisApps\React\Practica
 C:\Users\brand\OneDrive\Documentos\ALGORITMOS\ALGORITMOS3\MisApps\React\PracticasReact\TP1-H-Front\TP1-API\obj\Debug\net8.0\TP1-API.pdb
 C:\Users\brand\OneDrive\Documentos\ALGORITMOS\ALGORITMOS3\MisApps\React\PracticasReact\TP1-H-Front\TP1-API\obj\Debug\net8.0\TP1-API.genruntimeconfig.cache
 C:\Users\brand\OneDrive\Documentos\ALGORITMOS\ALGORITMOS3\MisApps\React\PracticasReact\TP1-H-Front\TP1-API\obj\Debug\net8.0\ref\TP1-API.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\nuget.config
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\Dapper.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\System.Data.SqlClient.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\runtimes\win-arm64\native\sni.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\runtimes\win-x64\native\sni.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\runtimes\win-x86\native\sni.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\DirectoriosReactBrandon\React\TP1-H-API\bin\Debug\net8.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

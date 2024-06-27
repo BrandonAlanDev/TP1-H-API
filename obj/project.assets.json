@@ -8683,25 +8683,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brand\\.nuget\\packages\\": {}
+    "C:\\Users\\hilet.HILET\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brand\\OneDrive\\Documentos\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj",
+      "projectUniqueName": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj",
       "projectName": "TP1-API",
-      "projectPath": "C:\\Users\\brand\\OneDrive\\Documentos\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\TP1-API.csproj",
-      "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brand\\OneDrive\\Documentos\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\obj\\",
+      "projectPath": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\TP1-API.csproj",
+      "packagesPath": "C:\\Users\\hilet.HILET\\.nuget\\packages\\",
+      "outputPath": "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\brand\\OneDrive\\Documentos\\ALGORITMOS\\ALGORITMOS3\\MisApps\\React\\PracticasReact\\TP1-H-Front\\TP1-API\\NuGet.Config",
-        "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "D:\\DirectoriosReactBrandon\\React\\TP1-H-API\\NuGet.Config",
+        "C:\\Users\\hilet.HILET\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8789,7 +8791,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

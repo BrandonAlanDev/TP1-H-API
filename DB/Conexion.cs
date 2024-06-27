@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using TP1_API.Models;
@@ -6,14 +7,14 @@ namespace TP1_API.DB
 {
     public class Conexion
     {
-        private readonly string connectionString = $"Server=server-terciario.hilet.com,11333;Database=honor;User Id=sa;Password=1234!\"qwerQW;";
+        private readonly string connectionString = "Server=server-terciario.hilet.com,11333;Database=honor;User Id=sa;Password=1234!\"qwerQW;";
 
         // Obtener todas las opiniones
         public IEnumerable<Opinion> GetOpinions()
         {
             using (var connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Comentarios";
+                string query = "EXEC dbo.CRUD_comentario @STATEMENT = 1";
                 return connection.Query<Opinion>(query);
             }
         }
@@ -23,7 +24,7 @@ namespace TP1_API.DB
         {
             using (var connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Comentarios WHERE nombre_usuario = @nombreUsuario";
+                string query = "EXEC dbo.CRUD_comentario @STATEMENT = 2, @NOMBRE_USUARIO = @nombreUsuario";
                 return connection.Query<Opinion>(query, new { nombreUsuario });
             }
         }
@@ -33,7 +34,7 @@ namespace TP1_API.DB
         {
             using (var connection = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Comentarios SET visible = 0 WHERE id_comentario = @idComentario";
+                string query = "EXEC dbo.CRUD_comentario @STATEMENT = 3, @ID_COMENTARIO = @idComentario";
                 connection.Execute(query, new { idComentario });
             }
         }
@@ -43,8 +44,13 @@ namespace TP1_API.DB
         {
             using (var connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Comentarios (comentario, visible, nombre_usuario, imagen) VALUES (@comentario, @visible, @nombre_usuario, @imagen)";
-                connection.Execute(query, opinion);
+                string query = "EXEC dbo.CRUD_comentario @STATEMENT = 4, @COMENTARIO = @comentario, @VISIBLE = @visible, @NOMBRE_USUARIO = @nombre_usuario, @IMAGEN = @imagen";
+                connection.Execute(query, new { 
+                    opinion.comentario, 
+                    opinion.visible, 
+                    opinion.nombre_usuario, 
+                    opinion.imagen 
+                });
             }
         }
     }
